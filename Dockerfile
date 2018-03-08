@@ -6,4 +6,4 @@ RUN hugo --source=/site/ --destination=/public/
 
 FROM nginx:stable-alpine
 COPY --from=STAGEONE /public/ /usr/share/nginx/html/
-EXPOSE 8080
+EXPOSE 80
