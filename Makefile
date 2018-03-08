@@ -28,6 +28,12 @@ push:: ## Pushes the docker image to the registry
 pushgc:: ## Pushes the docker image to Google Cloud the registry
 	    @gcloud docker -- push $(IMAGE_TAG_GC)
 
+docker-start:: ## start the container in daemon mode
+	    @docker-compose up -d
+
+docker-stop:: ## start the container in daemon mode
+	    @docker stop `docker ps |  grep hugokube_website_1 | awk '{print $1}'`
+
 build:: ## Builds the docker image locally
 	    @echo $(IMAGE_TAG_LOCAL)
 			@docker build --pull \
